@@ -1,0 +1,6 @@
+@_13_ORM_Geenid_HostAddress = http://localhost:5058
+
+GET {{_13_ORM_Geenid_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
