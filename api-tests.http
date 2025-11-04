@@ -1,0 +1,78 @@
+@baseUrl = https://localhost:5001/api
+
+### 1. Loo geen "reesus" alleelide väärtustega (+, -)
+POST {{baseUrl}}/Geeni/loo
+Content-Type: application/json
+
+{
+  "alleeliNimetus": "reesus",
+  "vanem1Positiivne": true,
+  "vanem2Positiivne": false
+}
+
+### 2. Loo veel üks "reesus" geen (+, +)
+POST {{baseUrl}}/Geeni/loo
+Content-Type: application/json
+
+{
+  "alleeliNimetus": "reesus",
+  "vanem1Positiivne": true,
+  "vanem2Positiivne": true
+}
+
+### 3. Loo "reesus" geen (-, -)
+POST {{baseUrl}}/Geeni/loo
+Content-Type: application/json
+
+{
+  "alleeliNimetus": "reesus",
+  "vanem1Positiivne": false,
+  "vanem2Positiivne": false
+}
+
+### 4. Otsi kõik "reesus" geenid
+GET {{baseUrl}}/Geeni/nimetus/reesus
+
+### 5. Hangi kõik geenid
+GET {{baseUrl}}/Geeni
+
+### 6. Hangi geen ID järgi (kasuta ID-d response'ist)
+GET {{baseUrl}}/Geeni/1
+
+### 7. Hangi juhuslik alleel geenist
+GET {{baseUrl}}/Geeni/1/juhuslikalleel
+
+### 8. Yhenda esimene ja teine geen (kasuta response'ist saadud ID-sid)
+POST {{baseUrl}}/Geeni/yhenda
+Content-Type: application/json
+
+{
+  "vanem1Id": 1,
+  "vanem2Id": 2
+}
+
+### 9. Uuenda geeni (muuda alleelide väärtusi)
+PUT {{baseUrl}}/Geeni/1
+Content-Type: application/json
+
+{
+  "alleeliNimetus": "reesus",
+  "alleel1Positiivne": false,
+  "alleel2Positiivne": false
+}
+
+### 10. Kustuta geen
+DELETE {{baseUrl}}/Geeni/3
+
+### 11. Loo geen teise alleeli tüübiga
+POST {{baseUrl}}/Geeni/loo
+Content-Type: application/json
+
+{
+  "alleeliNimetus": "AB0",
+  "vanem1Positiivne": true,
+  "vanem2Positiivne": false
+}
+
+### 12. Otsi "AB0" geenid
+GET {{baseUrl}}/Geeni/nimetus/AB0
